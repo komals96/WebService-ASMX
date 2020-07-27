@@ -35,7 +35,8 @@ steps:
   # ASP.NET
 - task: FileTransform@2
   inputs:
-    folderPath: '$(build.artifactStagingDirectory)/**/${{ parameters.projectToDeploy }}.zip'         
-    enableXmlTransform: true
+    folderPath: '$(System.DefaultWorkingDirectory)/**/*.zip'         
+    #enableXmlTransform: true
     xmlTransformationRules: '-transform **\*.($Release.EnvironmentName).config -xml **\*.config'
-    
+    #fileType: # Optional. Options: xml, json
+    #targetFiles: # Optional
