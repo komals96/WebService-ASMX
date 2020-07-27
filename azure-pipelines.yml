@@ -36,4 +36,4 @@ steps:
 - task: FileTransform@2
   inputs:
     folderPath: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    xmlTransformationRules: '-transform **\*.dev.config -xml **\*.config'
+    xmlTransformationRules: '-transform **\*.($Release.EnvironmentName).config -xml **\*.config'
