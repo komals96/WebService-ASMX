@@ -41,7 +41,7 @@ steps:
   inputs:
      folderPath: '$(Build.ArtifactStagingDirectory)' 
     #enableXmlTransform: # Optional
-     xmlTransformationRules: '-transform **\*.Dev.config -xml **\*.config'
+     xmlTransformationRules: '-transform **\*.prod.config -xml **\*.config'
     #fileType: # Optional. Options: xml, json
     #targetFiles: # Optional
 - task: PublishBuildArtifacts@1
