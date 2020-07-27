@@ -35,7 +35,7 @@ steps:
   # ASP.NET
 - task: FileTransform@2
   inputs:
-    folderPath: '$(System.DefaultWorkingDirectory)/**/*.zip'         
+    folderPath: '$(System.DefaultWorkingDirectory)/WebService-ASMX/MyWebService-ASMX.zip'         
     #enableXmlTransform: true
     xmlTransformationRules: '-transform **\*.($Release.EnvironmentName).config -xml **\*.config'
     #fileType: # Optional. Options: xml, json
