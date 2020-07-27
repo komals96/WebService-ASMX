@@ -38,5 +38,4 @@ steps:
     folderPath: '$(System.DefaultWorkingDirectory)/WebService-ASMX/MyWebService-ASMX.zip'         
     #enableXmlTransform: true
     xmlTransformationRules: '-transform **\*.($Release.EnvironmentName).config -xml **\*.config'
-    #fileType: # Optional. Options: xml, json
-    #targetFiles: # Optional
+    #fileType: xml
