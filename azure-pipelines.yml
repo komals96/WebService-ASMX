@@ -35,5 +35,7 @@ steps:
   # ASP.NET
 - task: FileTransform@2
   inputs:
-    folderPath: '$(System.DefaultWorkingDirectory)/**/*https://github.com/komals96/WebService-ASMX.zip'
+    folderPath: '$(build.artifactStagingDirectory)/**/${{ parameters.projectToDeploy }}.zip'         
+    enableXmlTransform: true
     xmlTransformationRules: '-transform **\*.($Release.EnvironmentName).config -xml **\*.config'
+    
