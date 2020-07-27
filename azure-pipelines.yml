@@ -27,15 +27,15 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
-  # ASP.NET
+# ASP.NET
 - task: FileTransform@2
   inputs:
     folderPath: '$(System.DefaultWorkingDirectory)/WebService-ASMX/MyWebService-ASMX.zip'         
     #enableXmlTransform: true
     xmlTransformationRules: '-transform **\*.($Release.EnvironmentName).config -xml **\*.config'
     #fileType: xml
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
