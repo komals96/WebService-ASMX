@@ -27,13 +27,25 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: |
+      **/*
+      !.git/**/*
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 # File transform
 # Replace tokens with variable values in XML or JSON configuration files
 - task: FileTransform@2
   inputs:
-     folderPath: '$(System.DefaultWorkingDirectory)/**/*.zip' 
+     folderPath: '$(Build.ArtifactStagingDirectory)' 
     #enableXmlTransform: # Optional
      xmlTransformationRules: '-transform **\*.Release.config -xml **\*.config-transform **\*.$(Release.EnvironmentName).config -xml **\*.config' # Optional
     #fileType: # Optional. Options: xml, json
     #targetFiles: # Optional
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: $(Build.ArtifactStagingDirectory)
+    artifactName: MyBuildOutputs
     
