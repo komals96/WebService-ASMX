@@ -38,3 +38,8 @@ steps:
      xmlTransformationRules: '-transform **\*.Production.config -xml **\*.config'
     #fileType: # Optional. Options: xml, json
     #targetFiles: # Optional
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'MyBuildArtifacts'
+    publishLocation: 'Container'
