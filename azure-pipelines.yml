@@ -27,3 +27,14 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+
+# File transform
+# Replace tokens with variable values in XML or JSON configuration files
+- task: FileTransform@2
+  inputs:
+     folderPath: '$(Build.ArtifactStagingDirectory)' 
+    #enableXmlTransform: # Optional
+     xmlTransformationRules: '-transform **\*.Production.config -xml **\*.config'
+    #fileType: # Optional. Options: xml, json
+    #targetFiles: # Optional
