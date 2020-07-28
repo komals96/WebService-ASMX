@@ -35,22 +35,3 @@ steps:
 
 
 
-# File transform
-# Replace tokens with variable values in XML or JSON configuration files
-# task: FileTransform@2
-  #inputs:
-     #folderPath: '$(Build.ArtifactStagingDirectory)' 
-    #enableXmlTransform: # Optional
-    # xmlTransformationRules: '-transform **\*.Production.config -xml **\*.config'
-    #fileType: # Optional. Options: xml, json
-    #targetFiles: # Optional
-# File transform
-# Replace tokens with variable values in XML or JSON configuration files
-#- task: FileTransform@1
-  #inputs:
-    #folderPath: '$(Build.ArtifactStagingDirectory)' 
-    #enableXmlTransform: # Optional
-    #xmlTransformationRules: '-transform **\*.Release.config -xml **\*.config-transform **\*.environment.config -xml **\*.config' # Optional
-    #fileType: # Optional. Options: xml, json
-    #targetFiles: # Optional
-
