@@ -40,11 +40,11 @@ steps:
     #targetFiles: # Optional
 # File transform
 # Replace tokens with variable values in XML or JSON configuration files
-- task: FileTransform@1
-  inputs:
-    folderPath: '$(Build.ArtifactStagingDirectory)' 
+#- task: FileTransform@1
+  #inputs:
+    #folderPath: '$(Build.ArtifactStagingDirectory)' 
     #enableXmlTransform: # Optional
-    xmlTransformationRules: '-transform **\*.Release.config -xml **\*.config-transform **\*.$(EnvironmentName).config -xml **\*.config' # Optional
+    #xmlTransformationRules: '-transform **\*.Release.config -xml **\*.config-transform **\*.$(EnvironmentName).config -xml **\*.config' # Optional
     #fileType: # Optional. Options: xml, json
     #targetFiles: # Optional
 - task: PublishBuildArtifacts@1
