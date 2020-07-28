@@ -27,6 +27,12 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+
 
 
 # File transform
@@ -47,9 +53,4 @@ steps:
     #xmlTransformationRules: '-transform **\*.Release.config -xml **\*.config-transform **\*.environment.config -xml **\*.config' # Optional
     #fileType: # Optional. Options: xml, json
     #targetFiles: # Optional
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
 
